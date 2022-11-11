@@ -1,0 +1,142 @@
+
+(
+    memory_layout: {
+        "SFR":      (start: 0x0000, end: 0x0010, perm: None,  value: Io),
+
+        "IO_8":     (start: 0x0010, end: 0x0100, perm: None,  value: Io),
+        "IO_16":    (start: 0x0100, end: 0x0200, perm: None,  value: Io),
+
+        "RAM":      (start: 0x0200, end: 0x0400, perm: RW,    value: None),
+
+        "BOOT_ROM": (start: 0x0c00, end: 0x1000, perm: RX,    value: None),
+        "INFOD":    (start: 0x1000, end: 0x1040, perm: R,     value: Fill(0x00)),
+        "INFOC":    (start: 0x1040, end: 0x1080, perm: R,     value: Fill(0x00)),
+        "INFOB":    (start: 0x1080, end: 0x10c0, perm: R,     value: Fill(0x00)),
+        "INFOA":    (start: 0x10c0, end: 0x1100, perm: R,     value: Fill(0x00)),
+
+        "FLASH":    (start: 0xe000, end: 0x10000, perm: None,  value: None),
+
+    },
+
+    interrupts: {
+        "UCA0.Rx":   (isr: "USCIAB0RX",    enable: ("IE2", 0x01), flag: ("IFG2",  0x01)),  // UCA0RXIE
+        "UCA0.Tx":   (isr: "USCIAB0TX",    enable: ("IE2", 0x02), flag: ("IFG2",  0x02)),  // UCA0TXIE
+
+        "UCB0.Rx":   (isr: "USCIAB0RX",    enable: ("IE2", 0x04), flag: ("IFG2",  0x04)),  // UCB0RXIE
+        "UCB0.Tx":   (isr: "USCIAB0TX",    enable: ("IE2", 0x08), flag: ("IFG2",  0x08)),  // UCB0TXIE
+
+        "Timer0.A0": (isr: "TIMER0_A0",    enable: ("TA0CCR0", 0x0002), flag: ("TA0CCR0",  0x0001)),  // TACLR
+        "Timer1.A0": (isr: "TIMER1_A0",    enable: ("TA1CCR0", 0x0002), flag: ("TA1CCR0",  0x0001)),  // TACLR
+    },
+
+    symbols: {
+        "ADC10SA": 0x01bc,
+        "ADC10MEM": 0x01b4,
+        "ADC10CTL1": 0x01b2,
+        "ADC10CTL0": 0x01b0,
+        "ADC10AE0": 0x004a,
+        "ADC10AE1": 0x004b,
+        "ADC10DTC1": 0x0049,
+        "ADC10DTC0": 0x0048,
+
+        "TA0CCR2": 0x0176,
+        "TA0CCR1": 0x0174,
+        "TA0CCR0": 0x0172,
+        "TA0R": 0x0170,
+        "TA0CCTL2": 0x0166,
+        "TA0CCTL1": 0x0164,
+        "TA0CCTL0": 0x0162,
+        "TA0CTL": 0x0160,
+        "TA0IV": 0x012e,
+
+        "TA1CCR1": 0x0194,
+        "TA1CCR0": 0x0192,
+        "TA1R": 0x0190,
+        "TA1CCTL1": 0x0184,
+        "TA1CCTL0": 0x0182,
+        "TA1CTL": 0x0180,
+        "TA1IV": 0x011e,
+
+        "FCTL3": 0x012c,
+        "FCTL2": 0x012a,
+        "FCTL1": 0x0128,
+
+        "WDTCTL": 0x0120,
+
+        "UCB0TXBUF": 0x06f,
+        "UCB0RXBUF": 0x06e,
+        "UCB0STAT": 0x06d,
+        "UCB0CIE": 0x06c,
+        "UCB0BR1": 0x06b,
+        "UCB0BR0": 0x06a,
+        "UCB0CTL1": 0x069,
+        "UCB0CTL0": 0x068,
+        "UCB0SA": 0x011a,
+        "UCB0OA": 0x0118,
+
+        "UCA0TXBUF": 0x0067,
+        "UCA0RXBUF": 0x0066,
+        "UCA0STAT": 0x0065,
+        "UCA0MCTL": 0x0064,
+        "UCA0BR1": 0x0063,
+        "UCA0BR0": 0x0062,
+        "UCA0CTL1": 0x0061,
+        "UCA0CTL0": 0x0060,
+        "UCA0IRRCTL": 0x005f,
+        "UCA0IRTCTL": 0x005e,
+        "UCA0ABCTL": 0x005d,
+
+        "CAPD": 0x005b,
+        "CACTL2": 0x005a,
+        "CACTL1": 0x0059,
+        "BCSCTL3": 0x0053,
+        "BCSCTL2": 0x0058,
+        "BCSCTL1": 0x0057,
+        "DCOCTL": 0x0056,
+
+        "P3REN": 0x0010,
+        "P3SEL": 0x001b,
+        "P3DIR": 0x001a,
+        "P3OUT": 0x0019,
+        "P3IN": 0x0018,
+
+        "P2SEL2": 0x0042,
+        "P2REN": 0x002f,
+        "P2SEL": 0x002e,
+        "P2IE": 0x002d,
+        "P2IES": 0x002c,
+        "P2IFG": 0x002b,
+        "P2DIR": 0x002a,
+        "P2OUT": 0x0029,
+        "P2IN": 0x0028,
+
+        "P1SEL2": 0x0041,
+        "P1REN": 0x0027,
+        "P1SEL": 0x0026,
+        "P1IE": 0x0025,
+        "P1IES": 0x0024,
+        "P1IFG": 0x0023,
+        "P1DIR": 0x0022,
+        "P1OUT": 0x0021,
+        "P1IN": 0x0020,
+
+        "IFG2": 0x0003,
+        "IFG1": 0x0002,
+        "IE2": 0x0001,
+        "IE1": 0x0000,
+
+        "PORT1":        0xffe4,
+        "PORT2":        0xffe6,
+        "ADC10":        0xffea,
+        "USCIAB0TX":    0xffec,
+        "USCIAB0RX":    0xffee,
+        "TIMER0_A1":    0xfff0,
+        "TIMER0_A0":    0xfff2,
+        "WDT":          0xfff4,
+        "COMPARATORA":  0xfff6,
+        "TIMER1_A1":    0xfff8,
+        "TIMER1_A0":    0xfffa,
+        "NMI":          0xfffc,
+        "RESET":        0xfffe,
+    }
+)

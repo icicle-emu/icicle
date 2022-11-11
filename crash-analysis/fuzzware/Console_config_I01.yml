@@ -1,0 +1,295 @@
+interrupt_triggers:
+  trigger:
+    every_nth_tick: 0x3e8
+    fuzz_mode: round_robin
+memory_map:
+  irq_ret:
+    base_addr: 0xfffff000
+    permissions: --x
+    size: 0x1000
+  mmio:
+    base_addr: 0x40000000
+    permissions: rw-
+    size: 0x20000000
+  nvic:
+    base_addr: 0xe0000000
+    permissions: rw-
+    size: 0x10000000
+  ram:
+    base_addr: 0x1fff0000
+    permissions: rw-
+    size: 0x10000
+  text:
+    base_addr: 0x0
+    file: ../../fuzzware-experiments/02-comparison-with-state-of-the-art/P2IM/Console/Console.bin
+    permissions: r-x
+    size: 0x8000
+mmio_models:
+  bitextract:
+    pc_00001560_mmio_4006a010:
+      access_size: 0x1
+      addr: 0x4006a010
+      left_shift: 0x0
+      mask: 0x70
+      pc: 0x1560
+      size: 0x1
+  constant:
+    pc_000015e2_mmio_4006a004:
+      access_size: 0x1
+      addr: 0x4006a004
+      pc: 0x15e2
+      val: 0x80
+    pc_000019de_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x19de
+      val: 0x8
+    pc_00001a72_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1a72
+      val: 0x8
+    pc_00001a8a_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1a8a
+      val: 0x20
+    pc_00001a9a_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1a9a
+      val: 0x40
+    pc_00001ad8_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1ad8
+      val: 0xc
+    pc_00001bf4_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1bf4
+      val: 0x8
+    pc_00001c0c_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1c0c
+      val: 0x0
+    pc_00001c38_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1c38
+      val: 0x10
+    pc_00001c48_mmio_40064006:
+      access_size: 0x1
+      addr: 0x40064006
+      pc: 0x1c48
+      val: 0x0
+  passthrough:
+    pc_00000e6a_mmio_40048038:
+      access_size: 0x4
+      addr: 0x40048038
+      init_val: 0x0
+      pc: 0xe6a
+    pc_00000e7c_mmio_40049048:
+      access_size: 0x4
+      addr: 0x40049048
+      init_val: 0x0
+      pc: 0xe7c
+    pc_00001278_mmio_4007e000:
+      access_size: 0x1
+      addr: 0x4007e000
+      init_val: 0x0
+      pc: 0x1278
+    pc_000014da_mmio_4006a003:
+      access_size: 0x1
+      addr: 0x4006a003
+      init_val: 0x0
+      pc: 0x14da
+    pc_00001542_mmio_4006a010:
+      access_size: 0x1
+      addr: 0x4006a010
+      init_val: 0x0
+      pc: 0x1542
+    pc_00001592_mmio_4006a003:
+      access_size: 0x1
+      addr: 0x4006a003
+      init_val: 0x0
+      pc: 0x1592
+    pc_00001742_mmio_40064003:
+      access_size: 0x1
+      addr: 0x40064003
+      init_val: 0x0
+      pc: 0x1742
+    pc_0000176c_mmio_40064001:
+      access_size: 0x1
+      addr: 0x40064001
+      init_val: 0x0
+      pc: 0x176c
+    pc_000017f8_mmio_40047000:
+      access_size: 0x4
+      addr: 0x40047000
+      init_val: 0x0
+      pc: 0x17f8
+    pc_0000182a_mmio_40064008:
+      access_size: 0x1
+      addr: 0x40064008
+      init_val: 0x0
+      pc: 0x182a
+    pc_000019c8_mmio_40064000:
+      access_size: 0x1
+      addr: 0x40064000
+      init_val: 0x0
+      pc: 0x19c8
+    pc_00001a5c_mmio_40064000:
+      access_size: 0x1
+      addr: 0x40064000
+      init_val: 0x0
+      pc: 0x1a5c
+    pc_00001ac8_mmio_40064000:
+      access_size: 0x1
+      addr: 0x40064000
+      init_val: 0x0
+      pc: 0x1ac8
+    pc_00001bde_mmio_40064000:
+      access_size: 0x1
+      addr: 0x40064000
+      init_val: 0x0
+      pc: 0x1bde
+    pc_00001c22_mmio_40064000:
+      access_size: 0x1
+      addr: 0x40064000
+      init_val: 0x0
+      pc: 0x1c22
+    pc_00001c98_mmio_40064000:
+      access_size: 0x1
+      addr: 0x40064000
+      init_val: 0x0
+      pc: 0x1c98
+    pc_00001f0e_mmio_400ff054:
+      access_size: 0x4
+      addr: 0x400ff054
+      init_val: 0x0
+      pc: 0x1f0e
+    pc_00001f0e_mmio_400ff114:
+      access_size: 0x4
+      addr: 0x400ff114
+      init_val: 0x0
+      pc: 0x1f0e
+    pc_00002750_mmio_4004803c:
+      access_size: 0x4
+      addr: 0x4004803c
+      init_val: 0x0
+      pc: 0x2750
+    pc_00002832_mmio_4003d01c:
+      access_size: 0x4
+      addr: 0x4003d01c
+      init_val: 0x0
+      pc: 0x2832
+    pc_00002852_mmio_4003d01c:
+      access_size: 0x4
+      addr: 0x4003d01c
+      init_val: 0x0
+      pc: 0x2852
+    pc_000028e4_mmio_4003d014:
+      access_size: 0x4
+      addr: 0x4003d014
+      init_val: 0x0
+      pc: 0x28e4
+    pc_00002940_mmio_4003d01c:
+      access_size: 0x4
+      addr: 0x4003d01c
+      init_val: 0x0
+      pc: 0x2940
+  set:
+    pc_00001552_mmio_4006a010:
+      access_size: 0x1
+      addr: 0x4006a010
+      pc: 0x1552
+      vals:
+      - 0x0
+      - 0x10
+    pc_0000162a_mmio_4006a004:
+      access_size: 0x1
+      addr: 0x4006a004
+      pc: 0x162a
+      vals:
+      - 0x0
+      - 0x20
+    pc_000017e0_mmio_4003d010:
+      access_size: 0x4
+      addr: 0x4003d010
+      pc: 0x17e0
+      vals:
+      - 0x0
+      - 0x100
+    pc_00001baa_mmio_40064001:
+      access_size: 0x1
+      addr: 0x40064001
+      pc: 0x1baa
+      vals:
+      - 0x0
+      - 0x2
+    pc_00001bc0_mmio_40064005:
+      access_size: 0x1
+      addr: 0x40064005
+      pc: 0x1bc0
+      vals:
+      - 0x0
+      - 0x40
+    pc_00001bce_mmio_40064000:
+      access_size: 0x1
+      addr: 0x40064000
+      pc: 0x1bce
+      vals:
+      - 0x0
+      - 0x40
+    pc_0000276c_mmio_4003d014:
+      access_size: 0x4
+      addr: 0x4003d014
+      pc: 0x276c
+      vals:
+      - 0x0
+      - 0x1
+    pc_0000292c_mmio_4003d014:
+      access_size: 0x4
+      addr: 0x4003d014
+      pc: 0x292c
+      vals:
+      - 0x0
+      - 0x4
+    pc_00002958_mmio_4003d014:
+      access_size: 0x4
+      addr: 0x4003d014
+      pc: 0x2958
+      vals:
+      - 0x0
+      - 0x2
+  unmodeled:
+    pc_00001638_mmio_4006a007:
+      access_size: 0x1
+      addr: 0x4006a007
+      pc: 0x1638
+    pc_00001f8e_mmio_4004a040:
+      access_size: 0x4
+      addr: 0x4004a040
+      pc: 0x1f8e
+    pc_00001f8e_mmio_4004a044:
+      access_size: 0x4
+      addr: 0x4004a044
+      pc: 0x1f8e
+    pc_00001f8e_mmio_4004a054:
+      access_size: 0x4
+      addr: 0x4004a054
+      pc: 0x1f8e
+    pc_00001f8e_mmio_4004a058:
+      access_size: 0x4
+      addr: 0x4004a058
+      pc: 0x1f8e
+    pc_00001f8e_mmio_4004d068:
+      access_size: 0x4
+      addr: 0x4004d068
+      pc: 0x1f8e
+    pc_00002888_mmio_4003d008:
+      access_size: 0x4
+      addr: 0x4003d008
+      pc: 0x2888

@@ -1,0 +1,528 @@
+interrupt_triggers:
+  trigger:
+    every_nth_tick: 0x3e8
+    fuzz_mode: round_robin
+memory_map:
+  irq_ret:
+    base_addr: 0xfffff000
+    permissions: --x
+    size: 0x1000
+  mmio:
+    base_addr: 0x40000000
+    permissions: rw-
+    size: 0x20000000
+  nvic:
+    base_addr: 0xe0000000
+    permissions: rw-
+    size: 0x10000000
+  ram:
+    base_addr: 0x20000000
+    permissions: rw-
+    size: 0x40000
+  text:
+    base_addr: 0x8000000
+    file: ../../fuzzware-experiments/02-comparison-with-state-of-the-art/P2IM/PLC/PLC.bin
+    permissions: r-x
+    size: 0x7000
+  zero:
+    base_addr: 0x0
+    permissions: rw-
+    size: 0x1000
+mmio_models:
+  bitextract:
+    pc_08000c7a_mmio_40023840:
+      access_size: 0x4
+      addr: 0x40023840
+      left_shift: 0x18
+      mask: 0x10000000
+      pc: 0x8000c7a
+      size: 0x1
+    pc_08000c90_mmio_40007000:
+      access_size: 0x4
+      addr: 0x40007000
+      left_shift: 0x8
+      mask: 0xc000
+      pc: 0x8000c90
+      size: 0x1
+    pc_08001f8a_mmio_40023840:
+      access_size: 0x4
+      addr: 0x40023840
+      left_shift: 0x18
+      mask: 0x10000000
+      pc: 0x8001f8a
+      size: 0x1
+    pc_080023a8_mmio_40023804:
+      access_size: 0x4
+      addr: 0x40023804
+      left_shift: 0x0
+      mask: 0x3f
+      pc: 0x80023a8
+      size: 0x1
+    pc_080023b8_mmio_40023804:
+      access_size: 0x4
+      addr: 0x40023804
+      left_shift: 0x0
+      mask: 0x7fc0
+      pc: 0x80023b8
+      size: 0x2
+    pc_080023fc_mmio_40023804:
+      access_size: 0x4
+      addr: 0x40023804
+      left_shift: 0x10
+      mask: 0x30000
+      pc: 0x80023fc
+      size: 0x1
+    pc_0800240e_mmio_40023804:
+      access_size: 0x4
+      addr: 0x40023804
+      left_shift: 0x0
+      mask: 0x7fc0
+      pc: 0x800240e
+      size: 0x2
+    pc_08002470_mmio_40023c00:
+      access_size: 0x4
+      addr: 0x40023c00
+      left_shift: 0x0
+      mask: 0xf
+      pc: 0x8002470
+      size: 0x1
+    pc_08002480_mmio_40023c00:
+      access_size: 0x4
+      addr: 0x40023c00
+      left_shift: 0x0
+      mask: 0xf
+      pc: 0x8002480
+      size: 0x1
+    pc_080024fa_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      left_shift: 0x0
+      mask: 0xc
+      pc: 0x80024fa
+      size: 0x1
+    pc_08002538_mmio_40023c00:
+      access_size: 0x4
+      addr: 0x40023c00
+      left_shift: 0x0
+      mask: 0xf
+      pc: 0x8002538
+      size: 0x1
+    pc_08002548_mmio_40023c00:
+      access_size: 0x4
+      addr: 0x40023c00
+      left_shift: 0x0
+      mask: 0xf
+      pc: 0x8002548
+      size: 0x1
+    pc_0800258a_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      left_shift: 0x0
+      mask: 0xf0
+      pc: 0x800258a
+      size: 0x1
+    pc_080025d0_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      left_shift: 0x8
+      mask: 0x1c00
+      pc: 0x80025d0
+      size: 0x1
+    pc_08002f66_mmio_40004804:
+      access_size: 0x4
+      addr: 0x40004804
+      left_shift: 0x0
+      mask: 0xff
+      pc: 0x8002f66
+      size: 0x1
+    pc_08003b3a_mmio_40023840:
+      access_size: 0x4
+      addr: 0x40023840
+      left_shift: 0x10
+      mask: 0x40000
+      pc: 0x8003b3a
+      size: 0x1
+  constant:
+    pc_08003254_mmio_40023830:
+      access_size: 0x4
+      addr: 0x40023830
+      pc: 0x8003254
+      val: 0x0
+    pc_08003f94_mmio_40004804:
+      access_size: 0x4
+      addr: 0x40004804
+      pc: 0x8003f94
+      val: 0x0
+    pc_08003f9a_mmio_40004804:
+      access_size: 0x4
+      addr: 0x40004804
+      pc: 0x8003f9a
+      val: 0x0
+    pc_08003fa4_mmio_40004804:
+      access_size: 0x4
+      addr: 0x40004804
+      pc: 0x8003fa4
+      val: 0x0
+    pc_08003faa_mmio_40004804:
+      access_size: 0x4
+      addr: 0x40004804
+      pc: 0x8003faa
+      val: 0x0
+  passthrough:
+    pc_08000c72_mmio_40023840:
+      access_size: 0x4
+      addr: 0x40023840
+      init_val: 0x0
+      pc: 0x8000c72
+    pc_08000c88_mmio_40007000:
+      access_size: 0x4
+      addr: 0x40007000
+      init_val: 0x0
+      pc: 0x8000c88
+    pc_08000dc4_mmio_40023c00:
+      access_size: 0x4
+      addr: 0x40023c00
+      init_val: 0x0
+      pc: 0x8000dc4
+    pc_08000dcc_mmio_40023c00:
+      access_size: 0x4
+      addr: 0x40023c00
+      init_val: 0x0
+      pc: 0x8000dcc
+    pc_08000dd4_mmio_40023c00:
+      access_size: 0x4
+      addr: 0x40023c00
+      init_val: 0x0
+      pc: 0x8000dd4
+    pc_08000fa0_mmio_40020c24:
+      access_size: 0x4
+      addr: 0x40020c24
+      init_val: 0x0
+      pc: 0x8000fa0
+    pc_0800104e_mmio_40020c00:
+      access_size: 0x4
+      addr: 0x40020c00
+      init_val: 0x0
+      pc: 0x800104e
+    pc_0800107c_mmio_40020c08:
+      access_size: 0x4
+      addr: 0x40020c08
+      init_val: 0x0
+      pc: 0x800107c
+    pc_0800108a_mmio_40020c04:
+      access_size: 0x4
+      addr: 0x40020c04
+      init_val: 0x0
+      pc: 0x800108a
+    pc_0800109c_mmio_40020c0c:
+      access_size: 0x4
+      addr: 0x40020c0c
+      init_val: 0x0
+      pc: 0x800109c
+    pc_08001f82_mmio_40023840:
+      access_size: 0x4
+      addr: 0x40023840
+      init_val: 0x0
+      pc: 0x8001f82
+    pc_080020da_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      init_val: 0x0
+      pc: 0x80020da
+    pc_080020e2_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      init_val: 0x0
+      pc: 0x80020e2
+    pc_0800249e_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      init_val: 0x0
+      pc: 0x800249e
+    pc_080024b0_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      init_val: 0x0
+      pc: 0x80024b0
+    pc_080024ba_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      init_val: 0x0
+      pc: 0x80024ba
+    pc_080024e8_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      init_val: 0x0
+      pc: 0x80024e8
+    pc_08002560_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      init_val: 0x0
+      pc: 0x8002560
+    pc_08002576_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      init_val: 0x0
+      pc: 0x8002576
+    pc_0800291e_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      init_val: 0x0
+      pc: 0x800291e
+    pc_08002928_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      init_val: 0x0
+      pc: 0x8002928
+    pc_080029ac_mmio_40004810:
+      access_size: 0x4
+      addr: 0x40004810
+      init_val: 0x0
+      pc: 0x80029ac
+    pc_080029ba_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      init_val: 0x0
+      pc: 0x80029ba
+    pc_080029d8_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      init_val: 0x0
+      pc: 0x80029d8
+    pc_08002d62_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      init_val: 0x0
+      pc: 0x8002d62
+    pc_08002d72_mmio_40004810:
+      access_size: 0x4
+      addr: 0x40004810
+      init_val: 0x0
+      pc: 0x8002d72
+    pc_08002d7c_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      init_val: 0x0
+      pc: 0x8002d7c
+    pc_08002d86_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      init_val: 0x0
+      pc: 0x8002d86
+    pc_08002f06_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      init_val: 0x0
+      pc: 0x8002f06
+    pc_08002f10_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      init_val: 0x0
+      pc: 0x8002f10
+    pc_08002f2c_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      init_val: 0x0
+      pc: 0x8002f2c
+    pc_08002fb6_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      init_val: 0x0
+      pc: 0x8002fb6
+    pc_08002fc0_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      init_val: 0x0
+      pc: 0x8002fc0
+    pc_0800307e_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      init_val: 0x0
+      pc: 0x800307e
+    pc_0800324c_mmio_40023830:
+      access_size: 0x4
+      addr: 0x40023830
+      init_val: 0x0
+      pc: 0x800324c
+    pc_0800359a_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      init_val: 0x0
+      pc: 0x800359a
+    pc_080035a6_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      init_val: 0x0
+      pc: 0x80035a6
+    pc_080035b6_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      init_val: 0x0
+      pc: 0x80035b6
+    pc_08003b1e_mmio_40023820:
+      access_size: 0x4
+      addr: 0x40023820
+      init_val: 0x0
+      pc: 0x8003b1e
+    pc_08003b26_mmio_40023820:
+      access_size: 0x4
+      addr: 0x40023820
+      init_val: 0x0
+      pc: 0x8003b26
+    pc_08003b32_mmio_40023840:
+      access_size: 0x4
+      addr: 0x40023840
+      init_val: 0x0
+      pc: 0x8003b32
+  set:
+    pc_08001fa2_mmio_40007004:
+      access_size: 0x4
+      addr: 0x40007004
+      pc: 0x8001fa2
+      vals:
+      - 0x0
+      - 0x10000
+    pc_08001fca_mmio_40007004:
+      access_size: 0x4
+      addr: 0x40007004
+      pc: 0x8001fca
+      vals:
+      - 0x0
+      - 0x20000
+    pc_0800200e_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      pc: 0x800200e
+      vals:
+      - 0x0
+      - 0x4
+    pc_0800201a_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      pc: 0x800201a
+      vals:
+      - 0x0
+      - 0x8
+    pc_08002052_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      pc: 0x8002052
+      vals:
+      - 0x0
+      - 0x20000
+    pc_0800206a_mmio_40023804:
+      access_size: 0x4
+      addr: 0x40023804
+      pc: 0x800206a
+      vals:
+      - 0x0
+      - 0x400000
+    pc_08002074_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      pc: 0x8002074
+      vals:
+      - 0x0
+      - 0x20000
+    pc_080022c6_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      pc: 0x80022c6
+      vals:
+      - 0x0
+      - 0x8
+    pc_08002312_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      pc: 0x8002312
+      vals:
+      - 0x0
+      - 0x2000000
+    pc_08002356_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      pc: 0x8002356
+      vals:
+      - 0x0
+      - 0x2000000
+    pc_08002394_mmio_40023808:
+      access_size: 0x4
+      addr: 0x40023808
+      pc: 0x8002394
+      vals:
+      - 0x0
+      - 0x4
+      - 0x8
+    pc_080023ae_mmio_40023804:
+      access_size: 0x4
+      addr: 0x40023804
+      pc: 0x80023ae
+      vals:
+      - 0x0
+      - 0x400000
+    pc_0800252a_mmio_40023800:
+      access_size: 0x4
+      addr: 0x40023800
+      pc: 0x800252a
+      vals:
+      - 0x0
+      - 0x2000000
+    pc_08002fe0_mmio_4000480c:
+      access_size: 0x4
+      addr: 0x4000480c
+      pc: 0x8002fe0
+      vals:
+      - 0x0
+      - 0x20
+      - 0x80
+    pc_08002fe2_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      pc: 0x8002fe2
+      vals:
+      - 0x0
+      - 0x1
+    pc_08003076_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      pc: 0x8003076
+      vals:
+      - 0x0
+      - 0x40
+    pc_08003f74_mmio_40004800:
+      access_size: 0x4
+      addr: 0x40004800
+      pc: 0x8003f74
+      vals:
+      - 0x0
+      - 0x1
+    pc_08003f7c_mmio_40004800:
+      access_size: 0x4
+      addr: 0x40004800
+      pc: 0x8003f7c
+      vals:
+      - 0x0
+      - 0x2
+    pc_08003f84_mmio_40004800:
+      access_size: 0x4
+      addr: 0x40004800
+      pc: 0x8003f84
+      vals:
+      - 0x0
+      - 0x4
+    pc_08003f8c_mmio_40004800:
+      access_size: 0x4
+      addr: 0x40004800
+      pc: 0x8003f8c
+      vals:
+      - 0x0
+      - 0x8
+  unmodeled:
+    pc_08002fde_mmio_40004800:
+      access_size: 0x4
+      addr: 0x40004800
+      pc: 0x8002fde
+    pc_0800305e_mmio_40004814:
+      access_size: 0x4
+      addr: 0x40004814
+      pc: 0x800305e

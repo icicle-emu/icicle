@@ -1,0 +1,197 @@
+interrupt_triggers:
+  trigger:
+    every_nth_tick: 0x3e8
+    fuzz_mode: round_robin
+memory_map:
+  irq_ret:
+    base_addr: 0xfffff000
+    permissions: --x
+    size: 0x1000
+  mmio:
+    base_addr: 0x40000000
+    permissions: rw-
+    size: 0x20000000
+  nvic:
+    base_addr: 0xe0000000
+    permissions: rw-
+    size: 0x10000000
+  ram:
+    base_addr: 0x20070000
+    permissions: rw-
+    size: 0x40000
+  text:
+    base_addr: 0x80000
+    file: ../../fuzzware-experiments/02-comparison-with-state-of-the-art/P2IM/Heat_Press/Heat_Press.bin
+    permissions: r-x
+    size: 0x7000
+mmio_models:
+  bitextract:
+    pc_00080ef2_mmio_400e0668:
+      access_size: 0x4
+      addr: 0x400e0668
+      left_shift: 0x0
+      mask: 0x3
+      pc: 0x80ef2
+      size: 0x1
+    pc_000815b0_mmio_400e0818:
+      access_size: 0x4
+      addr: 0x400e0818
+      left_shift: 0x0
+      mask: 0xff
+      pc: 0x815b0
+      size: 0x1
+  constant:
+    pc_00080eca_mmio_400e0668:
+      access_size: 0x4
+      addr: 0x400e0668
+      pc: 0x80eca
+      val: 0x1
+    pc_00080ed2_mmio_400e0668:
+      access_size: 0x4
+      addr: 0x400e0668
+      pc: 0x80ed2
+      val: 0x10000
+    pc_00080ee6_mmio_400e0668:
+      access_size: 0x4
+      addr: 0x400e0668
+      pc: 0x80ee6
+      val: 0x8
+    pc_00080efe_mmio_400e0668:
+      access_size: 0x4
+      addr: 0x400e0668
+      pc: 0x80efe
+      val: 0x8
+    pc_00080f0a_mmio_400e0668:
+      access_size: 0x4
+      addr: 0x400e0668
+      pc: 0x80f0a
+      val: 0x8
+  passthrough:
+    pc_00080d4e_mmio_400e0e70:
+      access_size: 0x4
+      addr: 0x400e0e70
+      init_val: 0x0
+      pc: 0x80d4e
+    pc_00080d4e_mmio_400e1070:
+      access_size: 0x4
+      addr: 0x400e1070
+      init_val: 0x0
+      pc: 0x80d4e
+    pc_00080d50_mmio_400e0e70:
+      access_size: 0x4
+      addr: 0x400e0e70
+      init_val: 0x0
+      pc: 0x80d50
+    pc_00080d50_mmio_400e1070:
+      access_size: 0x4
+      addr: 0x400e1070
+      init_val: 0x0
+      pc: 0x80d50
+    pc_00080d5a_mmio_400e1470:
+      access_size: 0x4
+      addr: 0x400e1470
+      init_val: 0x0
+      pc: 0x80d5a
+    pc_00080eda_mmio_400e0630:
+      access_size: 0x4
+      addr: 0x400e0630
+      init_val: 0x0
+      pc: 0x80eda
+    pc_00081022_mmio_400c0004:
+      access_size: 0x4
+      addr: 0x400c0004
+      init_val: 0x0
+      pc: 0x81022
+    pc_00081044_mmio_400c0004:
+      access_size: 0x4
+      addr: 0x400c0004
+      init_val: 0x0
+      pc: 0x81044
+    pc_00081054_mmio_400c0004:
+      access_size: 0x4
+      addr: 0x400c0004
+      init_val: 0x0
+      pc: 0x81054
+  set:
+    pc_00080eba_mmio_400e0620:
+      access_size: 0x4
+      addr: 0x400e0620
+      pc: 0x80eba
+      vals:
+      - 0x0
+      - 0x1000000
+    pc_0008131c_mmio_400e0e18:
+      access_size: 0x4
+      addr: 0x400e0e18
+      pc: 0x8131c
+      vals:
+      - 0x0
+      - 0xffffffff
+    pc_0008131c_mmio_400e1218:
+      access_size: 0x4
+      addr: 0x400e1218
+      pc: 0x8131c
+      vals:
+      - 0x0
+      - 0xffffffff
+    pc_0008147c_mmio_400e0814:
+      access_size: 0x4
+      addr: 0x400e0814
+      pc: 0x8147c
+      vals:
+      - 0x0
+      - 0x2
+    pc_000815aa_mmio_400e0814:
+      access_size: 0x4
+      addr: 0x400e0814
+      pc: 0x815aa
+      vals:
+      - 0x0
+      - 0x1
+      - 0x2
+      - 0x3
+  unmodeled:
+    pc_00080e16_mmio_400e0e08:
+      access_size: 0x4
+      addr: 0x400e0e08
+      pc: 0x80e16
+    pc_00080e16_mmio_400e1008:
+      access_size: 0x4
+      addr: 0x400e1008
+      pc: 0x80e16
+    pc_00080e16_mmio_400e1208:
+      access_size: 0x4
+      addr: 0x400e1208
+      pc: 0x80e16
+    pc_00080e16_mmio_400e1408:
+      access_size: 0x4
+      addr: 0x400e1408
+      pc: 0x80e16
+    pc_00080e1c_mmio_400e0e18:
+      access_size: 0x4
+      addr: 0x400e0e18
+      pc: 0x80e1c
+    pc_00080e1c_mmio_400e1018:
+      access_size: 0x4
+      addr: 0x400e1018
+      pc: 0x80e1c
+    pc_00080e1c_mmio_400e1218:
+      access_size: 0x4
+      addr: 0x400e1218
+      pc: 0x80e1c
+    pc_00080e1c_mmio_400e1418:
+      access_size: 0x4
+      addr: 0x400e1418
+      pc: 0x80e1c
+    pc_00080e3a_mmio_400e0618:
+      access_size: 0x4
+      addr: 0x400e0618
+      pc: 0x80e3a
+    pc_00080e4e_mmio_400e0708:
+      access_size: 0x4
+      addr: 0x400e0708
+      pc: 0x80e4e
+    pc_00080e7e_mmio_400e0618:
+      access_size: 0x4
+      addr: 0x400e0618
+      pc: 0x80e7e

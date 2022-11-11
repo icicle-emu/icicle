@@ -1,0 +1,24 @@
+[submodule "icicle-emu"]
+	path = icicle-emu
+	url = https://github.com/icicle-emu/icicle-emu
+[submodule "ghidra"]
+	path = ghidra
+	url = https://github.com/icicle-emu/ghidra
+[submodule "bench-harness"]
+	path = bench-harness
+	url = https://github.com/icicle-emu/bench-harness
+[submodule "sysroots"]
+	path = sysroots
+	url = https://github.com/icicle-emu/sysroots
+[submodule "AFLplusplus"]
+	path = AFLplusplus
+	url = https://github.com/icicle-emu/AFLplusplus
+[submodule "afl_ghidra_emu"]
+	path = afl_ghidra_emu
+	url = https://github.com/icicle-emu/afl_ghidra_emu
+[submodule "fuzzware"]
+	path = fuzzware
+	url = https://github.com/icicle-emu/fuzzware
+[submodule "fuzzware-experiments"]
+	path = fuzzware-experiments
+	url = https://github.com/icicle-emu/fuzzware-experiments
