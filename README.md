@@ -1,7 +1,3 @@
-**DISCLAIMER: This repository is provided to support the paper: "Icicle: A Re-Designed Emulator for Grey-Box Firmware Fuzzing" and must not be used for purposes other than review. Post-publication this repository will be re-released under an open-source licence.**
-
----
-
 # Icicle
 
 ## Quickstart
